@@ -10,7 +10,7 @@
 	include_once "lib/vendor/simplehtmldom-1.5/simple_html_dom.php";
 	include "lib/scraper-class/uagent.php";
 	include "lib/vendor/PHPCrawl_081/classes/phpcrawler.class.php";
-	include "lib/ebay.php";
+	include "ebayClass.php";
 	
 	$i = 0;
 	$LIMIT_I = 5000;
@@ -21,7 +21,7 @@
 	$crawler->addURLFilterRule("#\.(jpg|jpeg|gif|png|js|rss|xml|atom|feed)$# i");
 	$crawler->setPageLimit(4); // Set page-limit to 50 for testing 	    
     $URLS = array(
-	     array('','','libros'),
+	     array('','',$keyword),
 	);     	
 
 	while (isset($URLS[$i]) and $i < $LIMIT_I):		
