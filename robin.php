@@ -20,14 +20,14 @@ include_once "vendor/simplehtmldom-1.5/simple_html_dom.php";
 include_once "robots/Robot.php";
 
 // Load all Robots classes
-$dir = opendir(dirname(__FILE__));
+$dir = opendir(dirname(__FILE__)."/robots");
 $robotsList = array();
 while ($current = readdir($dir)){
     if( $current != "." && $current != "..") {
-        if (is_dir(dirname(__FILE__)."/".$current)){
-            if (file_exists(dirname(__FILE__)."/".$current."/".$current.".php")){
+        if (is_dir(dirname(__FILE__)."/robots/".$current)){
+            if (file_exists(dirname(__FILE__)."/robots/".$current."/".$current.".php")){
                 $robotsList[] = $current;
-                include_once dirname(__FILE__)."/".$current."/".$current.".php";
+                include_once dirname(__FILE__)."/robots/".$current."/".$current.".php";
             }else{
                 echo $current.' not installed properly'.PHP_EOL;
             }
@@ -59,7 +59,10 @@ if (!isset($argv[2]) or !fe( $robot->$argv[2])){
   die();
 }
 
+
+// Run it
 $robot-> $argv[2]();
-//
+
+
 echo '============================================================'.PHP_EOL;
 
