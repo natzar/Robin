@@ -8,7 +8,7 @@ class Ebay extends Robot{
             echo '[!] Error Keyword for search missing';
             die();
         }
-        include dirname(__FILE__)."/lib/pinterest.php";
+        include dirname(__FILE__)."/lib/ebay.php";
     }
 
 }

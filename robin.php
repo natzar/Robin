@@ -14,7 +14,11 @@ echo 'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 echo PHP_EOL.PHP_EOL;
 
 
-include "robots/Robot.php";
+include_once "vendor/uagent.php";
+include_once "vendor/PHPCrawl_081/classes/phpcrawler.class.php";
+include_once "vendor/simplehtmldom-1.5/simple_html_dom.php";
+include_once "robots/Robot.php";
+
 // Load all Robots classes
 $dir = opendir(dirname(__FILE__));
 $robotsList = array();
