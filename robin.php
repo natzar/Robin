@@ -13,41 +13,35 @@ echo '============================================================'.PHP_EOL;
 echo 'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.'.PHP_EOL;
 echo PHP_EOL.PHP_EOL;
 
-include "vendor/autoload.php";
 
-include "lib/Pinterest/Pinterest.php";
-/*
-
-  $dir = opendir(dirname(__FILE__)."/lib");
-    $files = array();
-    while ($current = readdir($dir)){
-        if( $current != "." && $current != "..") {
-        
-
-               if(eregi(".*\.txt", $path.$current) and $activado){
-                
-                echo $current.PHP_EOL;
-                memoriza("./corpus/".$current);
+include "robots/Robot.php";
+// Load all Robots classes
+$dir = opendir(dirname(__FILE__));
+$robotsList = array();
+while ($current = readdir($dir)){
+    if( $current != "." && $current != "..") {
+        if (is_dir(dirname(__FILE__)."/".$current)){
+            if (file_exists(dirname(__FILE__)."/".$current."/".$current.".php")){
+                $robotsList[] = $current;
+                include_once dirname(__FILE__)."/".$current."/".$current.".php";
+            }else{
+                echo $current.' not installed properly'.PHP_EOL;
             }
-            
         }
     }
-*/
+}
+echo "Installed Robots: ".implode(",",$robotsList).PHP_EOL;
 
 
-
-
-print_r($argv);
 if (!class_exists($argv[1])){
-
-    echo 'There is no Robot for '.$argv[1].' at /lib/'.PHP_EOL;
+    echo 'There is no Robot for '.$argv[1].' at /robots/'.PHP_EOL;
     echo 'Contribute!';
     die();
 }
 
 $robot = new $argv[1]($argv);
-if (!isset($argv[2]) or !is_callable( $robot->$argv[2]())){
 
+if (!isset($argv[2]) or !fe( $robot->$argv[2])){
     echo 'The Robot '.$argv[1].' doesn\'t recognize the command '.$argv[2].PHP_EOL;
     echo 'Available commands:'.PHP_EOL;
     echo '------------------------------'.PHP_EOL;
@@ -58,9 +52,10 @@ if (!isset($argv[2]) or !is_callable( $robot->$argv[2]())){
         echo "[+] $nombre_metodo".PHP_EOL;
     }
   echo '------------------------------'.PHP_EOL;
+  die();
 }
 
-$robot->$argv[2]($argv);
+$robot-> $argv[2]();
 //
 echo '============================================================'.PHP_EOL;
 
