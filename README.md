@@ -1,5 +1,5 @@
 # Robin
-Crawling &amp; Scraping Toolkit in Php. Google, Instagram, Vine, Twitter, Ebay, Pinterest, ...
+Collaborative Crawling &amp; Scraping Toolkit in Php. Google, Instagram, Vine, Twitter, Ebay, Pinterest, ...
 @author: @betoayesa / betolopezayesa@gmail.com
 
 I will use the term "Robot" to describe crawling/scraping at same time.
@@ -13,6 +13,10 @@ Just clone this repo.
     php robin.php {ROBOT} {COMMAND} {ARGUMENTS}
 
 For example: php robin.php Pinterest download "garden party";
+
+## Add more Robots
+
+See contribute section. It's easy to integrate.
 
 ## Contribute
 
