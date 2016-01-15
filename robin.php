@@ -1,5 +1,5 @@
 <?
-
+set_time_limit(0);
 echo PHP_EOL;
 echo '============================================================'.PHP_EOL;
 echo 'ROBIN            '.PHP_EOL;
