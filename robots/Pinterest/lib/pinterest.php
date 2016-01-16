@@ -5,21 +5,18 @@
 
 	#Include libraries
 	
-	include_once dirname(__FILE__)."/../../vendor/simplehtmldom-1.5/simple_html_dom.php";
-	include_once dirname(__FILE__)."/../../vendor/uagent.php";
-	include_once dirname(__FILE__)."/../../vendor/PHPCrawl_081/classes/phpcrawler.class.php";
 	include_once dirname(__FILE__)."/pinterestClass.php";
 
-	//$writer = new Writer('pinterest.csv');	
+	echo 'Starting Pinterest Crawler:'.PHP_EOL;
 	$i = 0;
 	$LIMIT_I = 5000;
-	echo '<hr> Empieza crawler:<br>';
+
 	$crawler = new PinterestCrawler(); 
 	$crawler->obeyRobotsTxt(true);
 	$crawler->addContentTypeReceiveRule("#text/html#");
 	$crawler->addURLFilterRule("#\.(jpg|jpeg|gif|png|js|rss|xml|atom|feed)$# i");
     $crawler->setPageLimit(4); // Set page-limit to 50 for testing 
-    echo 'HELLO: '.count($URLS).'<hr>';
+
     $URLS = array(   	array('','',$keyword)	);     	
 		
 	while (isset($URLS[$i]) and $i < $LIMIT_I):		
@@ -34,18 +31,12 @@
 		# REPORTING
 		$report = $crawler->getProcessReport(); 
 
-		if (PHP_SAPI == "cli") $lb = "\n"; 
-		else $lb = "<br />"; 
-   
-		echo $lb."I: ".$i." "; 
-		echo "Links followed: ".$report->links_followed." "; 
-		echo "Documents received: ".$report->files_received." "; 
-		//echo "Bytes received: ".$report->bytes_received." bytes".$lb; 
-		echo "Process runtime: ".$report->process_runtime." sec".$lb; 
-		echo $lb;
+		echo "Links followed: ".$report->links_followed." ".PHP_EOL; 
+		echo "Documents received: ".$report->files_received." ".PHP_EOL; 
+		echo "Process runtime: ".$report->process_runtime." sec".PHP_EOL; 
+        echo PHP_EOL;
 		flush();
-		unset($report);
-		//sleep(rand(1,3));
+		unset($report);		
 		$i++;
 	endwhile;
 

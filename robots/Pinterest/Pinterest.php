@@ -3,7 +3,7 @@
 class Pinterest extends Robot{
 
 
-    function searchanddownload(){
+    function images(){
         $keyword = $this->args[3];
         if (!isset($keyword)){
             echo '[!] Error Keyword for search missing';
