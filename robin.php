@@ -42,7 +42,7 @@ while ($current = readdir($dir)){
     } 
 }
 echo '==---------------------------------------------------------------=='.PHP_EOL;
-echo "[i] Installed Robots: ".PHP_EOL."[+] ".implode(PHP_EOL."[+] ",$robotsList).".".PHP_EOL;
+echo "[i] Installed Robots: ".PHP_EOL."    [+] ".implode(PHP_EOL."    [+] ",$robotsList).".".PHP_EOL;
 if (count($errors) > 0) echo "[i] Errors found: ".implode(", ",$errors).".".PHP_EOL;
 echo '==---------------------------------------------------------------=='.PHP_EOL;
 
