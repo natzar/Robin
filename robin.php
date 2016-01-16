@@ -1,8 +1,14 @@
 <?
 set_time_limit(0);
 date_default_timezone_set('Europe/Madrid'); 
-
 system("clear");
+/*
+
+    ~ Robin ~
+    A command line wrapper for different Crawlers and Scrapers
+
+
+*/
 echo PHP_EOL;
 echo '==---------------------------------------------------------------=='.PHP_EOL;
 echo '~ ROBIN ~            '.PHP_EOL;
@@ -12,10 +18,8 @@ echo '@version: alpha 15/1/2016'.PHP_EOL;
 echo '@fork it: https://github.com/natzar/robin'.PHP_EOL;
 echo '@license: MIT License (MIT) '.PHP_EOL;
 echo 'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND'.PHP_EOL;
-echo '[i] Usage: php robin.php {Robot} {command} {keyword|arguments|parameters}'.PHP_EOL;
-//echo '[i] Type just php robin.php {Robot} for help'.PHP_EOL;
-  echo '==---------------------------------------------------------------=='.PHP_EOL;
-
+echo '[i] Usage: php robin.php <Robot> <command> <keyword|arguments|parameters>'.PHP_EOL;
+echo '==---------------------------------------------------------------=='.PHP_EOL;
 
 include_once "vendor/uagent.php";
 include_once "vendor/PHPCrawl_081/classes/phpcrawler.class.php";
@@ -38,38 +42,29 @@ while ($current = readdir($dir)){
         }
     } 
 }
+
 echo "[i] Installed Robots: ".implode(", ",$robotsList).".".PHP_EOL;
-echo "[i] Errors found: ".implode(", ",$errors).".".PHP_EOL;
-//echo '==---------------------------------------------------------------=='.PHP_EOL;
-if (!class_exists($argv[1])){
-  
-    echo '[i] Type just php robin.php {Robot} for available commands'.PHP_EOL;
-    die();
-}
+if (count($errors) > 0) echo "[i] Errors found: ".implode(", ",$errors).".".PHP_EOL;
+
+if (!class_exists($argv[1]))    die('[i] Type just php robin.php <Robot> for available commands'.PHP_EOL);
+
 
 $robot = new $argv[1]($argv);
 
-if (!isset($argv[2]) or !is_callable(array($argv[1],$argv[2]))){   
-   
-    echo 'Available commands:'.PHP_EOL;
-   
+if (!isset($argv[2]) or !is_callable(array($argv[1],$argv[2]))){      
+    echo 'Available commands:'.PHP_EOL;   
     $metodos_clase = get_class_methods($robot);
-
     foreach ($metodos_clase as $nombre_metodo) {
         if ($nombre_metodo != "__construct")
-        echo "[+] $nombre_metodo (Run 'php robin.php $argv[1] $nombre_metodo')".PHP_EOL;
+        echo "[+] $nombre_metodo - Run 'php robin.php $argv[1] $nombre_metodo'".PHP_EOL;
     }
-echo '==---------------------------------------------------------------=='.PHP_EOL;
-    //echo PHP_EOL.'[i] Usage: php robin.php {Robot} {command} {keyword}'.PHP_EOL;
-    
-
-  die();
+    echo '==---------------------------------------------------------------=='.PHP_EOL;
+    die();
 }
 
-
-// Run it
+// Everything loaded, Method found in Robot, Run it
 $robot-> $argv[2]();
 
 
-echo '------------------------------------------------------------'.PHP_EOL;
+echo '==---------------------------------------------------------------=='.PHP_EOL;
 
