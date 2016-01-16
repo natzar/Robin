@@ -1,5 +1,5 @@
 <?
-include dirname(__FILE__)."/playStoreApi.php";
+include dirname(__FILE__)."/lib/playStoreApi.php";
 
 class AndroidMarket extends Robot{
 
