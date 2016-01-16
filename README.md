@@ -1,4 +1,5 @@
 # Robin
+I developed a lot of crawlers/scrapers in the past. This repo is a way to store all of them together, having a command line wrapper to run them all. 
 Collaborative Crawling &amp; Scraping Toolkit in Php. Google, Instagram, Vine, Twitter, Ebay, Pinterest, ...
 @author: @betoayesa / betolopezayesa@gmail.com
 
@@ -29,11 +30,28 @@ Just clone this repo.
 
 For example: php robin.php Pinterest download "garden party";
 
-## Add more Robots
+## Available robots
+
+    - Pinterest: Download all images matching a search query
+    - Twitter: Auto favorite all tweets matching your search query
+    - Ebay: Download all products from a category
+    - Google: SERPS matching a search query
+    - Vine: Un-official Vine api wrapper... Like, comment, favorite ....
+    - ElPais: Spain's newspaper. Get all News from category
+    - Android Market: Get app details
+    
+All images or other contents, will be downloaded to /downloads folder.
+
+### Add more Robots
 
 See contribute section. It's easy to integrate.
 
-## Contribute
+### To-do
+    - Outputs format: Json / Xml / Csv / Mysql / Email
+    - More methods
+    - Get help from other developers adding their crawlers/scrapers
+
+### Contribute
 
     - Add a folder in /lib, capital letter. For example /lib/Pinterest
     - Create a php file inside with the same name of the folder. For example /lib/Pinterest/Pinterest.php
@@ -44,11 +62,14 @@ As all of the scraping crawling world its a mess, and always changing, and all w
 
 I used Composer, but some vendor packages I'm using aren't available through composer , so I don't want to mess with different vendor folders.
 
-## Thanks to
+### Thanks to
 
-All /vendor people :)
+    * Simplehtmldom creators
+    * PhpCrawl creators
+    * PhpQuery creators
+    * uagent Lib creator
 
-##The MIT License (MIT)
+### Licensed under MIT License (MIT)
 Copyright (c) 2016 @betoayesa / betolopezayesa@gmail.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
