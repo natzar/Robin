@@ -12,14 +12,13 @@ system("clear");
 echo PHP_EOL;
 echo '==---------------------------------------------------------------=='.PHP_EOL;
 echo '~ ROBIN ~            '.PHP_EOL;
-echo '@description: Open Crawling & Scraping Php Toolkit   '.PHP_EOL;  
+echo 'Crawling & Scraping Php Toolkit   '.PHP_EOL; 
+echo 'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND'.PHP_EOL; 
 echo '@author: betolopezayesa@gmail.com / @betoayesa'.PHP_EOL;
 echo '@version: alpha 15/1/2016'.PHP_EOL;
 echo '@fork it: https://github.com/natzar/robin'.PHP_EOL;
 echo '@license: MIT License (MIT) '.PHP_EOL;
-echo 'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND'.PHP_EOL;
 echo '[i] Usage: php robin.php <Robot> <command> <keyword|arguments|parameters>'.PHP_EOL;
-echo '==---------------------------------------------------------------=='.PHP_EOL;
 
 include_once "vendor/uagent.php";
 include_once "vendor/PHPCrawl_081/classes/phpcrawler.class.php";
@@ -42,12 +41,12 @@ while ($current = readdir($dir)){
         }
     } 
 }
-
-echo "[i] Installed Robots: ".implode(", ",$robotsList).".".PHP_EOL;
+echo '==---------------------------------------------------------------=='.PHP_EOL;
+echo "[i] Installed Robots: ".PHP_EOL."[+] ".implode(PHP_EOL."[+] ",$robotsList).".".PHP_EOL;
 if (count($errors) > 0) echo "[i] Errors found: ".implode(", ",$errors).".".PHP_EOL;
+echo '==---------------------------------------------------------------=='.PHP_EOL;
 
-if (!class_exists($argv[1]))    die('[i] Type just php robin.php <Robot> for available commands'.PHP_EOL);
-
+if (!isset($argv[1]) or !class_exists($argv[1]))    die('[i] Type just php robin.php <Robot> for available commands'.PHP_EOL);
 
 $robot = new $argv[1]($argv);
 
