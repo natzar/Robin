@@ -4,6 +4,18 @@ Collaborative Crawling &amp; Scraping Toolkit in Php. Google, Instagram, Vine, T
 
 I will use the term "Robot" to describe crawling/scraping at same time.
 
+==---------------------------------------------------------------==
+~ ROBIN ~            
+@description: Open Crawling & Scraping Php Toolkit   
+@author: betolopezayesa@gmail.com / @betoayesa
+@version: alpha 15/1/2016
+@fork it: https://github.com/natzar/robin
+@license: MIT License (MIT) 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND
+[i] Usage: php robin.php {Robot} {command} {keyword|arguments|parameters}
+==---------------------------------------------------------------==
+
+
 ## Install
 
 Just clone this repo.
