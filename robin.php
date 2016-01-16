@@ -57,7 +57,7 @@ if (!isset($argv[2]) or !is_callable(array($argv[1],$argv[2]))){
 
     foreach ($metodos_clase as $nombre_metodo) {
         if ($nombre_metodo != "__construct")
-        echo "[+] $nombre_metodo (Ex. 'php robin.php $argv[1] $nombre_metodo keyword')".PHP_EOL;
+        echo "[+] $nombre_metodo (Run 'php robin.php $argv[1] $nombre_metodo')".PHP_EOL;
     }
 echo '==---------------------------------------------------------------=='.PHP_EOL;
     //echo PHP_EOL.'[i] Usage: php robin.php {Robot} {command} {keyword}'.PHP_EOL;

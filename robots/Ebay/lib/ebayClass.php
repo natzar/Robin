@@ -15,7 +15,7 @@ class EbayCrawler extends PHPCrawler
 			$htmldom= new simple_html_dom();
 			$htmldom->load($html);
 			$data = array();
-			$images= $htmldom->find('img[itemprop=image]');
+			$images= $htmldom->find('ul#ListViewInner li img');
 			echo 'Total images'.		count($images).''.PHP_EOL;
 			$i = 0;
 			foreach ($images as $raw_links) {
