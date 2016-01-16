@@ -8,7 +8,7 @@ class Google extends Robot{
             echo '[!] Error Keyword for search missing';
             die();
         }
-        include dirname(__FILE__)."google-scraper.php";
+        include dirname(__FILE__)."/google-scraper.php";
     }
 
 }

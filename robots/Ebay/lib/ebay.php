@@ -4,17 +4,10 @@
 	ini_set('display_errors', '1');
 
 	#Include libraries
-	include "lib/vendor/easy-csv-master/lib/EasyCSV/AbstractBase.php";
-	include "lib/vendor/easy-csv-master/lib/EasyCSV/Reader.php";
-	include "lib/vendor/easy-csv-master/lib/EasyCSV/Writer.php";
-	include_once "lib/vendor/simplehtmldom-1.5/simple_html_dom.php";
-	include "lib/scraper-class/uagent.php";
-	include "lib/vendor/PHPCrawl_081/classes/phpcrawler.class.php";
 	include "ebayClass.php";
 	
 	$i = 0;
 	$LIMIT_I = 5000;
-	echo '<hr> Empieza crawler:<br>';
 	$crawler = new EbayCrawler(); 
 	$crawler->obeyRobotsTxt(true);
 	$crawler->addContentTypeReceiveRule("#text/html#");
@@ -35,12 +28,11 @@
 	
 		# REPORTING
 		$report = $crawler->getProcessReport(); 
-		if (PHP_SAPI == "cli") $lb = "\n"; 
-		else $lb = "<br />"; 
-		echo $lb."I: ".$i." "; 
-		echo "Links followed: ".$report->links_followed." "; 
-		echo "Documents received: ".$report->files_received." "; 
-		echo "Process runtime: ".$report->process_runtime." sec".$lb; 
+	
+	
+		echo "Links followed: ".$report->links_followed." ".PHP_EOL; 
+		echo "Documents received: ".$report->files_received." ".PHP_EOL; 
+		echo "Process runtime: ".$report->process_runtime." sec".PHP_EOL; 
 		echo $lb;
 		flush();
 		unset($report);

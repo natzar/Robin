@@ -10,7 +10,7 @@ class Elpais extends Robot{
             die();
         }
 */
-        include dirname(__FILE__)."elpais-scraper.php";
+        include dirname(__FILE__)."/elpais-scraper.php";
     }
 
 }
