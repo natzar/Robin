@@ -12,6 +12,8 @@ echo '@version: alpha 15/1/2016'.PHP_EOL;
 echo '@fork it: https://github.com/natzar/robin'.PHP_EOL;
 echo '@license: MIT License (MIT) '.PHP_EOL;
 echo 'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND'.PHP_EOL;
+echo '[i] Usage: php robin.php {Robot} {command} {keyword|arguments|parameters}'.PHP_EOL;
+//echo '[i] Type just php robin.php {Robot} for help'.PHP_EOL;
   echo '==---------------------------------------------------------------=='.PHP_EOL;
 
 
@@ -40,8 +42,8 @@ echo "[i] Installed Robots: ".implode(", ",$robotsList).".".PHP_EOL;
 echo "[i] Errors found: ".implode(", ",$errors).".".PHP_EOL;
 //echo '==---------------------------------------------------------------=='.PHP_EOL;
 if (!class_exists($argv[1])){
-    echo '[i] Usage: php robin.php {Robot} {command} {keyword|arguments|parameters}'.PHP_EOL;
-    echo '[i] Type just php robin.php {Robot} for help'.PHP_EOL;
+  
+    echo '[i] Type just php robin.php {Robot} for available commands'.PHP_EOL;
     die();
 }
 
@@ -55,11 +57,11 @@ if (!isset($argv[2]) or !is_callable(array($argv[1],$argv[2]))){
 
     foreach ($metodos_clase as $nombre_metodo) {
         if ($nombre_metodo != "__construct")
-        echo "[+] $nombre_metodo".PHP_EOL;
+        echo "[+] $nombre_metodo (Ex. 'php robin.php $argv[1] $nombre_metodo keyword')".PHP_EOL;
     }
 echo '==---------------------------------------------------------------=='.PHP_EOL;
     //echo PHP_EOL.'[i] Usage: php robin.php {Robot} {command} {keyword}'.PHP_EOL;
-    echo '[i] Type just php robin.php {Robot} for help'.PHP_EOL;
+    
 
   die();
 }
