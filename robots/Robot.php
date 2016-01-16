@@ -7,7 +7,7 @@ class Robot {
             $argv[2] = "";
         }
       //  echo '==---------------------------------------------------------------=='.PHP_EOL;
-        echo '[Selected Robot] '.$argv[2]."@".strtoupper($argv[1]).PHP_EOL;
+        echo '[Selected Robot] '.$argv[2]." @ ".strtoupper($argv[1]).PHP_EOL;
         echo '==---------------------------------------------------------------=='.PHP_EOL;
         
     }
