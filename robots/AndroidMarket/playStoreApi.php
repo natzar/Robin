@@ -1,9 +1,9 @@
 <?php
 	error_reporting(E_ALL);
 	ini_set('display_errors', '1');
-	include_once('Queryelements.php'); // including class file
-	include_once('uagent.php'); 
-	include_once('seo-proxys.php');	
+	include_once(dirname(__FILE__).'/../../vendor/Queryelements.php'); // including class file
+	include_once(dirname(__FILE__).'/../../vendor/uagent.php'); 
+	include_once(dirname(__FILE__).'/../../vendor/seo-proxys.php');	
 
 	class PlayStoreApi{
 
