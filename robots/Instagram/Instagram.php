@@ -8,7 +8,10 @@
 
 class Instagram extends Robot{
     
-
+    private function __construct(){
+        parent::__construct();
+        echo '[i] If nothing is returned, check if account is private or not exists'.PHP_EOL;
+    }
     private function scrape_insta($username) {
     	$insta_source = file_get_contents('http://instagram.com/'.$username);
     	$shards = explode('window._sharedData = ', $insta_source);
@@ -43,7 +46,7 @@ class Instagram extends Robot{
         
         
         $results_array = $this->scrape_insta($user);
-    print_r($results_array);
+        print_r($results_array);
     for($cnt=0; $cnt < 20; $cnt++)
 {
  $latest_array = $results_array['entry_data']['ProfilePage'][0]['user']['media']['nodes'][$cnt];
