@@ -26,12 +26,15 @@ I used Composer, but some vendor packages I'm using aren't available through Com
 
 ## Install
 
-Just download or clone this repo.
+Get the last version by forking 'develop' branch. Release 0.1.0 it's pretty basic and buggy.
+
+An master is equal as release 0.1.0.
 
 
 ## Available robots
 
     - Pinterest: Download all images matching a search query
+    - Instagram: Profile photo, first 20 photos from an account
     - Twitter: Auto favorite all tweets matching your search query
     - Ebay: Download all products from a category
     - Google: SERPS matching a search query
