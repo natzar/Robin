@@ -23,6 +23,7 @@ echo '[i] Usage: php robin.php <Robot> <command> <keyword|arguments|parameters>'
 include_once "vendor/uagent.php";
 include_once "vendor/PHPCrawl_081/classes/phpcrawler.class.php";
 include_once "vendor/simplehtmldom-1.5/simple_html_dom.php";
+include_once "robots/OutputRobot.php";
 include_once "robots/Robot.php";
 
 // Load all Robots classes

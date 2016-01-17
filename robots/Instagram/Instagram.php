@@ -8,12 +8,17 @@
 
 class Instagram extends Robot{
     
-     function Instagram(){
+     function __construct($args){
+        parent::__construct($args);
         echo '[i] If nothing is returned, check if account is private or not exists'.PHP_EOL;
+        echo '[Scraping ...]'.PHP_EOL;
     }
     private function scrape_insta($username) {
-    	$insta_source = file_get_contents('http://instagram.com/'.$username);
+    	$insta_source = $this->wget('http://instagram.com/'.$username);    	
     	$shards = explode('window._sharedData = ', $insta_source);
+    	if (count($shards) < 2){
+    	   die("[Error] Check your internet connection".PHP_EOL);
+    	}
     	$insta_json = explode(';</script>', $shards[1]); 
     	$insta_array = json_decode($insta_json[0], TRUE);
     	return $insta_array;
@@ -26,15 +31,11 @@ class Instagram extends Robot{
         $results_array = $this->scrape_insta($user);
     
         $latest_array = $results_array['entry_data']['ProfilePage'][0]['user']['media']['nodes'][0];
-        echo 'Latest Photo:'.PHP_EOL;
-        echo '<a href="http://instagram.com/p/'.$latest_array['code'].'"><img src="'.$latest_array['display_src'].'"></a></br>';
-        echo 'Likes: '.$latest_array['likes']['count'].' - Comments: '.$latest_array['comments']['count'].''.PHP_EOL;
-        /* BAH! An Instagram site redesign in June 2015 broke quick retrieval of captions, locations and some other stuff.
-        echo 'Taken at '.$latest_array['location']['name'].''.PHP_EOL;
-        //Heck, lets compare it to a useful API, just for kicks.
-        echo '<img src="http://maps.googleapis.com/maps/api/staticmap?markers=color:red%7Clabel:X%7C'.$latest_array['location']['latitude'].','.$latest_array['location']['longitude'].'&zoom=13&size=300x150&sensor=false">';
-        ?>
-        */
+         $ext = pathinfo($latest_array['display_src'], PATHINFO_EXTENSION);
+         copy($latest_array['display_src'],dirname(__FILE__)."/../../downloads/".$this->args[1]."-".$this->args[3]."_".".".$ext);
+
+        $this->output->set('output',$latest_array);
+        $this->saveResults();
     }
 
     function photos(){
@@ -45,15 +46,23 @@ class Instagram extends Robot{
         
         
         $results_array = $this->scrape_insta($user);
-        print_r($results_array);
-    for($cnt=0; $cnt < 20; $cnt++)
-{
- $latest_array = $results_array['entry_data']['ProfilePage'][0]['user']['media']['nodes'][$cnt];
+//        print_r($results_array);
+        $results =array();
+        for($cnt=0; $cnt < 20; $cnt++) {
+         $latest_array = $results_array['entry_data']['ProfilePage'][0]['user']['media']['nodes'][$cnt];
+         $results[] = $latest_array;
+        $ext = pathinfo($latest_array['display_src'], PATHINFO_EXTENSION);
+         copy($latest_array['display_src'],dirname(__FILE__)."/../../downloads/".$this->args[1]."-".$this->args[3]."_".$cnt.".".$ext);
+/*      
 
- echo 'Latest Photo:'.PHP_EOL;
- echo '<a href="http://instagram.com/p/'.$latest_array['code'].'"><img src="'.$latest_array['display_src'].'"></a></br>';
- echo 'Likes: '.$latest_array['likes']['count'].' - Comments: '.$latest_array['comments']['count'].''.PHP_EOL;
-}
+         echo 'Latest Photo:'.PHP_EOL;
+         echo '<a href="http://instagram.com/p/'.$latest_array['code'].'"><img src="'.$latest_array['display_src'].'"></a></br>';
+         echo 'Likes: '.$latest_array['likes']['count'].' - Comments: '.$latest_array['comments']['count'].''.PHP_EOL;
+*/
+        }
+        
+        $this->output->set('output',$results); 
+        $this->saveResults();
     }
 
     
