@@ -1,9 +1,9 @@
 # ~ Robin ~
 
 A command line php tool to organize and run several pieces of code from different sources that extracts content from websites.
-Here, the term "Robot" refers to a piece of code that does crawling and scraping in a especific way. Some Robots are from my own, and some taken from Internet.
+Here, the term "Robot" refers to a piece of code that does crawling and scraping defined tasks.
 
-Dependencies: `Simplehtmldom, PhpCrawler, UAgent` (included)
+
 
 
 ### Available Robots
@@ -27,10 +27,7 @@ All images and data results (Json), will be saved in /downloads folder.
 
 For example: `php robin.php Pinterest download "garden party"`
 
-### Install
-
-Download the zip, uncompress it and run robin.php.  Ignore Release 0.1.0, outdated.
-
+It works out of the box, you don't need to install anything. If you want to use Vine or Twitter you will need to set your credentials. Run it to get more information. Dependencies: `Simplehtmldom, PhpCrawler, UAgent` (all included).
 
 ### License
  DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
