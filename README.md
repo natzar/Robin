@@ -1,11 +1,9 @@
 # ~ Robin ~
 
 A command line php tool to organize and run several pieces of code from different sources that extracts content from websites.
-Here, the term "Robot" refers to a piece of code that does crawling and scraping in a especific way.
+Here, the term "Robot" refers to a piece of code that does crawling and scraping in a especific way. Some Robots are from my own, and some taken from Internet.
 
-Some Robots are from my own, and some taken from Internet.
-
-Dependencies (included): Simplehtmldom, PhpCrawler, UAgent.
+Dependencies: `Simplehtmldom, PhpCrawler, UAgent` (included)
 
 
 ### Available Robots
@@ -19,9 +17,8 @@ Dependencies (included): Simplehtmldom, PhpCrawler, UAgent.
     - ElPais: Spain's newspaper. Get all News from category
     - Android Market: Get app details
     
-All images or other contents, will be downloaded to /downloads folder.
+All images and data results (Json), will be saved in /downloads folder.
 
-All other contents will be saved in a json file inside /download
 ####Usage: 
 
 	php robin.php <Robot's Name> <command> <keyword|arguments|parameters>
@@ -32,20 +29,8 @@ For example: `php robin.php Pinterest download "garden party"`
 
 ### Install
 
-Download the zip, uncompress it and run robin.php.  
+Download the zip, uncompress it and run robin.php.  Ignore Release 0.1.0, outdated.
 
-Get the last version by forking 'develop' branch. 
-Ignore Release 0.1.0, outdated.
-
-
-
-
-### Thanks to
-
-    * Simplehtmldom creators
-    * PhpCrawl creators
-    * PhpQuery creators
-    * uagent Lib creator
 
 ### License
  DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
