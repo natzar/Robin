@@ -16,13 +16,14 @@ echo 'Crawling & Scraping Php Toolkit   '.PHP_EOL;
 echo 'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND'.PHP_EOL; 
 echo '@author: betolopezayesa@gmail.com / @betoayesa'.PHP_EOL;
 echo '@version: alpha 15/1/2016'.PHP_EOL;
-echo '@fork it: https://github.com/natzar/robin'.PHP_EOL;
+echo '@Fork it: https://github.com/natzar/robin'.PHP_EOL;
 echo '@license: MIT License (MIT) '.PHP_EOL;
 echo '[i] Usage: php robin.php <Robot> <command> <keyword|arguments|parameters>'.PHP_EOL;
 
 include_once "vendor/uagent.php";
 include_once "vendor/PHPCrawl_081/classes/phpcrawler.class.php";
 include_once "vendor/simplehtmldom-1.5/simple_html_dom.php";
+include_once "robots/OutputRobot.php";
 include_once "robots/Robot.php";
 
 // Load all Robots classes
