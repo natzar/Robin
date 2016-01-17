@@ -1,35 +1,20 @@
 # ~ Robin ~
-16/1/2016 - Author: Beto López @betoayesa <betolopezayesa@gmail.com>
 
-Crawling &amp; Scraping Php Toolkit and command line wrapper. Google, Instagram, Vine, Twitter, Ebay, Pinterest, and more to come.
-Here, the term "Robot" refers to a piece of code that does crawling and scraping of one or more urls in the same domain.
+A command line php tool to organize and run several pieces of code from different sources that extracts content from websites.
+Here, the term "Robot" refers to a piece of code that does crawling and scraping in a especific way.
 
-The Robots are some from my own, and some taken from Internet.
-Dependencies (included): Using Simplehtmldom, PhpCrawler, UAgent.
+Some Robots are from my own, and some taken from Internet.
 
-####Usage: 
-
-	php robin.php <Robot's Name> <command> <keyword|arguments|parameters>
-	
-The command argument is a method from <Robot's name> class. 
-
-For example: `php robin.php Pinterest download "garden party"`
-
-`download` it's a method from Pinterest class. And "garden party" is the keyword used by `download` method.
-
-## Install
-
-Get the last version by forking 'develop' branch. Release 0.1.0 it's pretty basic and buggy.
-Master branch is equal to release 0.1.0.
+Dependencies (included): Simplehtmldom, PhpCrawler, UAgent.
 
 
-### Available robots
+### Available Robots
 
     - Pinterest: Download all images matching a search query
-    - Instagram: Profile photo, first 20 photos from an account
+    - Instagram: Latest Photo, Profile photo, first 20 photos from an account
     - Twitter: Auto favorite all tweets matching your search query
     - Ebay: Download all products from a category
-    - Google: SERPS matching a search query
+    - Google: SERPS matching a search query, Adwords scraping, ...
     - Vine: Un-official Vine api wrapper... Like, comment, favorite ....
     - ElPais: Spain's newspaper. Get all News from category
     - Android Market: Get app details
@@ -37,19 +22,22 @@ Master branch is equal to release 0.1.0.
 All images or other contents, will be downloaded to /downloads folder.
 
 All other contents will be saved in a json file inside /download
+####Usage: 
+
+	php robin.php <Robot's Name> <command> <keyword|arguments|parameters>
+	
 
 
-### Add your Robots
+For example: `php robin.php Pinterest download "garden party"`
 
-    - Add a folder in /robots, capital letter. For example /robots/Pinterest
-    - Create a php file inside with the same name of the folder. For example /robots/Pinterest/Pinterest.php
-    - Pinterest.php must define a class Pinterest extends Robot
-    - Inside you can put all the commands. For example, php robin.php Pinterest {commands that go here} and are the methods of Pinterest Class
+### Install
 
-### To-do
-    - Outputs format: Json / Xml / Csv / Mysql / Email
-    - More methods
-    - Get help from other developers adding their crawlers/scrapers
+Download the zip, uncompress it and run robin.php.  
+
+Get the last version by forking 'develop' branch. 
+Ignore Release 0.1.0, outdated.
+
+
 
 
 ### Thanks to
@@ -59,9 +47,18 @@ All other contents will be saved in a json file inside /download
     * PhpQuery creators
     * uagent Lib creator
 
-### MIT License
-Copyright (c) 2016 Beto López Ayesa
+### License
+ DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
+                    Version 2, December 2004 
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ Copyright (C) 2016 Beto López <betolopezayesa@gmail.com>
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ Everyone is permitted to copy and distribute verbatim or modified 
+ copies of this license document, and changing it is allowed as long 
+ as the name is changed. 
+
+            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
+   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION 
+
+  0. You just DO WHAT THE FUCK YOU WANT TO.
+  
