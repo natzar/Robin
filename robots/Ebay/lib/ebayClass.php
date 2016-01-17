@@ -21,25 +21,19 @@ class EbayCrawler extends PHPCrawler
 			foreach ($images as $raw_links) {
 				echo $raw_links->alt."','1','".$raw_links->src."\n";
 				$filename = '_e__'.$i.'.jpg' ;
+				$data[] = array($raw_links->src,$filename);
 				copy(str_replace("l225 ","l900",$raw_links->src),'downloads/'.$filename);				
 			$i++; 
-		}
-		
-		
-		
+		  }
 
-		
-
-
-
-
-
-		
-			echo json_encode($data).PHP_EOL;
-			//$writer->writeRow(json_encode($data));
-unset($data);
-
-unset($htmldom);
+        $output = OutputRobot::singleton();
+        $aux = $output->get('output');
+        $aux = array_merge($aux,$data);
+		$output->set('output',$aux,false);
+        			
+        unset($data);
+        
+        unset($htmldom);
 	}
   }
   } 
