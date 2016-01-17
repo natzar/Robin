@@ -1,10 +1,11 @@
 # ~ Robin ~
 16/1/2016 - Author: Beto López @betoayesa <betolopezayesa@gmail.com>
 
-Crawling &amp; Scraping Toolkit in Php. Google, Instagram, Vine, Twitter, Ebay, Pinterest, and more to come.
-I've developed a lot of crawlers/scrapers in the past. This repo is a way to store all of them together, having a command line wrapper to run them all. I will use the term "Robot" to describe crawling/scraping at same time.
+Crawling &amp; Scraping Php Toolkit and command line wrapper. Google, Instagram, Vine, Twitter, Ebay, Pinterest, and more to come.
+Here, the term "Robot" refers to a piece of code that does crawling and scraping of one or more urls in the same domain.
 
-As all of the scraping crawling tools are a mess, and websites's html is always changing, and all we really want is to use it and leave it, doesn't matter if inside you service folder you put a lot of garbage code, if on top of that you put a clean Class. Use the others robots as reference to create new ones. Use /vendor for vendor packages. 
+The Robots are some from my own, and some taken from Internet.
+Dependencies (included): Using Simplehtmldom, PhpCrawler, UAgent.
 
 ####Usage: 
 
@@ -16,22 +17,13 @@ For example: `php robin.php Pinterest download "garden party"`
 
 `download` it's a method from Pinterest class. And "garden party" is the keyword used by `download` method.
 
-
-### Disclaimer
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
-I tried to put a more practical layer on top of a bunch of git repos, libs and garbage code. But it works, that is the objective. The objective is to have a personal fast toolkit to crawl and scrape sites. Not really thought for use in production.
-
-I used Composer, but some vendor packages I'm using aren't available through Composer, so I don't want to mess with different vendor folders.
-
-
 ## Install
 
 Get the last version by forking 'develop' branch. Release 0.1.0 it's pretty basic and buggy.
+Master branch is equal to release 0.1.0.
 
-An master is equal as release 0.1.0.
 
-
-## Available robots
+### Available robots
 
     - Pinterest: Download all images matching a search query
     - Instagram: Profile photo, first 20 photos from an account
@@ -44,21 +36,23 @@ An master is equal as release 0.1.0.
     
 All images or other contents, will be downloaded to /downloads folder.
 
+All other contents will be saved in a json file inside /download
 
-## Add your Robots
 
-    - Add a folder in /lib, capital letter. For example /lib/Pinterest
-    - Create a php file inside with the same name of the folder. For example /lib/Pinterest/Pinterest.php
+### Add your Robots
+
+    - Add a folder in /robots, capital letter. For example /robots/Pinterest
+    - Create a php file inside with the same name of the folder. For example /robots/Pinterest/Pinterest.php
     - Pinterest.php must define a class Pinterest extends Robot
     - Inside you can put all the commands. For example, php robin.php Pinterest {commands that go here} and are the methods of Pinterest Class
 
-## To-do
+### To-do
     - Outputs format: Json / Xml / Csv / Mysql / Email
     - More methods
     - Get help from other developers adding their crawlers/scrapers
 
 
-## Thanks to
+### Thanks to
 
     * Simplehtmldom creators
     * PhpCrawl creators
