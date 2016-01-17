@@ -8,8 +8,7 @@
 
 class Instagram extends Robot{
     
-    private function __construct(){
-        parent::__construct();
+     function Instagram(){
         echo '[i] If nothing is returned, check if account is private or not exists'.PHP_EOL;
     }
     private function scrape_insta($username) {
