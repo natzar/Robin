@@ -3,7 +3,7 @@
 class EbayCrawler extends PHPCrawler 
 {
 
-  function handleDocumentInfo($DocInfo) 
+ function handleDocumentInfo(PHPCrawlerDocumentInfo $DocInfo) 
   {
       
    
@@ -35,8 +35,6 @@ class EbayCrawler extends PHPCrawler
         
         unset($htmldom);
 	}
-	return true;
+	
   }
-} 
-
-       	
+  }

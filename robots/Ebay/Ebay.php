@@ -14,7 +14,7 @@ class Ebay extends Robot{
     	$crawler = new EbayCrawler(); 
     	$crawler->obeyRobotsTxt(true);
     	$crawler->addContentTypeReceiveRule("#text/html#");
-    	$crawler->addURLFilterRule("#\.(jpg|jpeg|gif|png|js|rss|xml|atom|feed)$# i");
+    	//$crawler->addURLFilterRule("#\.(jpg|jpeg|gif|png|js|rss|xml|atom|feed)$# i");
     	$crawler->setPageLimit(4); // Set page-limit to 50 for testing 	        		
 		$crawler->setURL("http://www.ebay.es/sch/i.html?_sacat=0&_nkw=".$keyword); 
 		$UAGENT = new UAgent();
