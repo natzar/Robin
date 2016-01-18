@@ -35,7 +35,8 @@ class EbayCrawler extends PHPCrawler
         
         unset($htmldom);
 	}
+	return true;
   }
-  } 
+} 
 
        	
