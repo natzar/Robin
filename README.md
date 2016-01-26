@@ -28,6 +28,8 @@ All images and data results (Json), will be saved in /downloads folder.
 For example: `php robin.php Pinterest download "garden party"`
 
 It works out of the box, you don't need to install anything. If you want to use Vine or Twitter you will need to set your credentials. Run it to get more information. Dependencies: `Simplehtmldom, PhpCrawler, UAgent` (all included).
+### Contribute
+If you use this repo, and add new robots, or new features to any robot please push it back!
 
 ### License
  DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
